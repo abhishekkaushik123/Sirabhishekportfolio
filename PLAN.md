@@ -96,7 +96,7 @@ later means editing one file.
 | ✅ M13 | **Top Picks** | Big outlined numbers (CSS text-stroke), hover effects |
 | ✅ M14 | **To Be Continued…** finale + contact | Scrubbed text scaling, CTAs |
 | ✅ M15 | **Mobile, reduced motion, accessibility, speed:** lazy-load the 3D, test on a phone | `prefers-reduced-motion`, keyboard nav, code splitting |
-| M16 | **Git + deploy:** GitHub repo, live on Vercel | Git workflow, CI deploys |
+| ✅ M16 | **Git + deploy:** GitHub repo, live on Vercel | Git workflow, CI deploys |
 | M17 | **Backend bonus:** contact form → your own Node/Express API that emails you | Ties into Phase 2 of your backend roadmap |
 
 Rough pace: one milestone every 1–3 sessions.

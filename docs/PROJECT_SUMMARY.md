@@ -1,7 +1,7 @@
 # ABHISHEK: The Series — Project Summary & Pipeline Architecture
 
 *A living document, updated after every task. Exported to PDF at the end of the project.*
-**Last updated:** 4 Nov 2026 · **Current step:** M16 (user pushing to GitHub and deploying on Vercel)
+**Last updated:** 5 Nov 2026 · **Current step:** Live at https://sirabhishekportfolio.vercel.app; tablet fixes waiting to be pushed
 
 ---
 
@@ -220,4 +220,5 @@ my_Project/
 22. ~~M13: Top Picks: outlined rank numbers, posters linking to their sections, hover effects~~ ✅
 23. ~~M14: To Be Continued: scrubbed letter build-up, contact buttons, Contact link in navbar~~ ✅
 24. ~~M15: Audit passed for phone widths, reduced motion and keyboard; added skip link, meta description, own favicon, motion-safe smooth scroll, data-saver intro skip, clearer gate text; brightened accent to #ff2a36 for contrast~~ ✅
-25. **Now: M16** Git + deploy; user chose to keep the MP3 after being warned it is a trademarked sound; real-phone test once live
+25. ~~M16: Live on Vercel from GitHub (abhishekkaushik123/Sirabhishekportfolio); user chose to keep the MP3 after a trademark warning~~ ✅
+26. **Next:** push tablet fixes, real-phone test, then admin panel + API (replaces M17)

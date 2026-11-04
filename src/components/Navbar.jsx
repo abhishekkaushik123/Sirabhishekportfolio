@@ -41,8 +41,8 @@ export default function Navbar({ viewer, onSwitchProfile }) {
           </span>
         </a>
 
-        <div className="flex items-center gap-8">
-          <ul className="hidden gap-8 text-sm md:flex">
+        <div className="flex items-center gap-4 lg:gap-8">
+          <ul className="hidden gap-4 text-sm md:flex lg:gap-8">
             {links.map((link) => (
               <li key={link.href}>
                 <a

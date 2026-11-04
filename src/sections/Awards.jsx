@@ -52,7 +52,7 @@ export default function Awards() {
                 <p className="text-xs uppercase tracking-[0.3em] text-gold">{award.type}</p>
                 <Laurel flip />
               </div>
-              <h3 className="mt-3 font-display text-4xl text-gold">{award.title}</h3>
+              <h3 className="mt-3 font-display text-4xl text-gold md:text-3xl lg:text-4xl">{award.title}</h3>
               <p className="mt-2 text-sm text-muted">{award.detail}</p>
             </TiltCard>
           </div>
@@ -76,4 +76,4 @@ export default function Awards() {
       </ul>
     </section>
   );
-}
+}

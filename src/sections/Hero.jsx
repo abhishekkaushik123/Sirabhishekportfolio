@@ -58,7 +58,7 @@ export default function Hero() {
             {profile.originLabel}
           </p>
 
-          <h1 className="hero-name font-display text-8xl uppercase leading-none md:text-[9rem]">
+          <h1 className="hero-name font-display text-8xl uppercase leading-none lg:text-[8.5rem]">
             {profile.firstName}
           </h1>
 
@@ -85,16 +85,16 @@ export default function Hero() {
             “{profile.tagline}”
           </p>
 
-          <div className="hero-cta mt-8 flex justify-center gap-3 md:justify-start">
+          <div className="hero-cta mt-8 flex flex-wrap justify-center gap-3 md:justify-start">
             <a
               href="#originals"
-              className="rounded-md bg-white px-6 py-3 text-sm font-semibold text-night transition-colors hover:bg-white/80"
+              className="whitespace-nowrap rounded-md bg-white px-6 py-3 text-sm font-semibold text-night transition-colors hover:bg-white/80"
             >
               ▶ Watch Originals
             </a>
             <a
               href="#story"
-              className="rounded-md bg-white/15 px-6 py-3 text-sm font-semibold transition-colors hover:bg-white/25"
+              className="whitespace-nowrap rounded-md bg-white/15 px-6 py-3 text-sm font-semibold transition-colors hover:bg-white/25"
             >
               ⓘ More Info
             </a>
@@ -117,4 +117,4 @@ export default function Hero() {
       </div>
     </section>
   );
-}
+}
