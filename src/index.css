@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@theme {
+  --color-night: #0b0b0f;
+  --color-surface: #18181b;
+  --color-accent: #ff2a36;
+  --color-muted: #a1a1aa;
+  --color-gold: #d4a64a;
+
+  --font-display: "Bebas Neue", sans-serif;
+  --font-sans: "Inter Variable", sans-serif;
+  --font-serif: "Instrument Serif", serif;
+}
