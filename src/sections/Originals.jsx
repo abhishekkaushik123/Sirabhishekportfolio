@@ -4,7 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import SectionTitle from "../components/SectionTitle";
 import TiltCard from "../components/TiltCard";
-import { projects } from "../data/projects";
+import { useProjects } from "../hooks/useProjects";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -16,6 +16,7 @@ const posterColors = {
 };
 
 export default function Originals() {
+  const projects = useProjects();
   const container = useRef(null);
   const viewport = useRef(null);
   const track = useRef(null);
@@ -27,7 +28,8 @@ export default function Originals() {
 
       // Computers: pin the section and let scrolling down move the posters sideways.
       mm.add("(min-width: 768px) and (prefers-reduced-motion: no-preference)", () => {
-        const distance = () => track.current.offsetWidth - viewport.current.clientWidth;
+        const distance = () =>
+          Math.max(0, track.current.offsetWidth - viewport.current.clientWidth);
 
         gsap.set(viewport.current, { overflow: "hidden" });
 
@@ -53,7 +55,8 @@ export default function Originals() {
         const row = viewport.current;
 
         const updateBar = () => {
-          gsap.set(bar.current, { scaleX: row.scrollLeft / (row.scrollWidth - row.clientWidth) });
+          const scrollable = row.scrollWidth - row.clientWidth;
+          gsap.set(bar.current, { scaleX: scrollable > 0 ? row.scrollLeft / scrollable : 1 });
         };
 
         updateBar();
@@ -61,8 +64,11 @@ export default function Originals() {
 
         return () => row.removeEventListener("scroll", updateBar);
       });
+
+      // The number of posters changes the page height, so re-measure everything below.
+      ScrollTrigger.refresh();
     },
-    { scope: container },
+    { scope: container, dependencies: [projects], revertOnUpdate: true },
   );
 
   return (
@@ -83,7 +89,7 @@ export default function Originals() {
                 className="h-[26rem] w-[78vw] shrink-0 snap-start md:h-[55vh] md:w-[max(30vw,22rem)]"
               >
                 <TiltCard
-                  className={`flex h-full flex-col rounded-xl bg-surface bg-linear-to-b ${posterColors[project.id]} to-60% p-6`}
+                  className={`flex h-full flex-col rounded-xl bg-surface bg-linear-to-b ${posterColors[project.id] ?? "from-sky-700"} to-60% p-6`}
                 >
                   <p className="text-xs font-semibold uppercase tracking-[0.3em]">
                     A Original

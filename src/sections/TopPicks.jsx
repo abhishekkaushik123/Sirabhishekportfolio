@@ -34,7 +34,7 @@ export default function TopPicks() {
         <SectionTitle eyebrow="Top Picks" title="Top 5 For You" />
       </div>
 
-      <ol className="pick-row flex gap-4 overflow-x-auto px-6 py-6 [scrollbar-width:none ] md:px-16">
+      <ol className="pick-row flex gap-4 overflow-x-auto px-6 py-6 [scrollbar-width:none] md:px-16">
         {topPicks.map((pick, index) => (
           <li key={pick.id} className="pick-reveal shrink-0">
             <a href={pick.href} className="group flex items-end">

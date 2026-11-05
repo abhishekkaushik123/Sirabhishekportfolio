@@ -81,7 +81,7 @@ export default function Skills() {
           role="tablist"
           aria-label="Skill genres"
           onKeyDown={handleKeyDown}
-          className="skill-tabs -mx-6 flex shrink-0 gap-2 overflow-x-auto px-6 pb-2 [scrollbar-width:none ] md:mx-0 md:w-60 md:flex-col md:gap-1 md:overflow-visible md:px-0 md:pb-0"
+          className="skill-tabs -mx-6 flex shrink-0 gap-2 overflow-x-auto px-6 pb-2 [scrollbar-width:none] md:mx-0 md:w-60 md:flex-col md:gap-1 md:overflow-visible md:px-0 md:pb-0"
         >
           {skillGenres.map((genre) => {
             const selected = genre.id === activeId;

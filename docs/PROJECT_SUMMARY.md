@@ -1,7 +1,7 @@
 # ABHISHEK: The Series — Project Summary & Pipeline Architecture
 
 *A living document, updated after every task. Exported to PDF at the end of the project.*
-**Last updated:** 5 Nov 2026 · **Current step:** Live at https://sirabhishekportfolio.vercel.app; tablet fixes waiting to be pushed
+**Last updated:** 6 Nov 2026 · **Current step:** Admin panel, Stage 4 (login). Live at https://sirabhishekportfolio.vercel.app
 
 ---
 
@@ -221,4 +221,7 @@ my_Project/
 23. ~~M14: To Be Continued: scrubbed letter build-up, contact buttons, Contact link in navbar~~ ✅
 24. ~~M15: Audit passed for phone widths, reduced motion and keyboard; added skip link, meta description, own favicon, motion-safe smooth scroll, data-saver intro skip, clearer gate text; brightened accent to #ff2a36 for contrast~~ ✅
 25. ~~M16: Live on Vercel from GitHub (abhishekkaushik123/Sirabhishekportfolio); user chose to keep the MP3 after a trademark warning~~ ✅
-26. **Next:** push tablet fixes, real-phone test, then admin panel + API (replaces M17)
+26. ~~Admin panel Stage 1: First Express server with GET /api/projects. Stages: API, database, connect site, login, admin page, go live, all content, contact form (replaces M17)~~ ✅
+27. ~~Admin panel Stage 2: PostgreSQL on Neon: projects table, setup script, API reads from database using pg~~ ✅
+28. ~~Admin panel Stage 3: useProjects hook fetches from API with projects.js backup; CORS allowlist; live build skips the API until VITE_API_URL is set~~ ✅
+29. **Next: Admin panel Stage 4** Secure login for the admin

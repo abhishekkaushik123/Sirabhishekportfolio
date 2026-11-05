@@ -25,3 +25,7 @@ dist-ssr
 
 # Temporary test builds
 .claude-verify
+
+# Secrets: never upload these
+.env
+server/essential.txt
