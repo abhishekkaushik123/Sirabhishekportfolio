@@ -6,15 +6,20 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node --watch --env-file=.env index.js",
-    "db:setup": "node --env-file=.env setup.js"
+    "db:setup": "node --env-file=.env setup.js",
+    "create-admin": "node --env-file=.env createAdmin.js",
+    "try-login": "node tryLogin.js",
+    "try-admin": "node tryAdmin.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
   "dependencies": {
+    "cookie-parser": "^1.4.7",
     "cors": "^2.8.6",
     "express": "^5.3.0",
+    "express-rate-limit": "^8.7.3",
     "pg": "^8.23.1"
   }
 }
