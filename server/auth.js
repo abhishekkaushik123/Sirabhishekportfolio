@@ -13,7 +13,8 @@ export const SESSION_COOKIE = "admin_session";
 export const cookieOptions = {
   httpOnly: true,
   sameSite: "strict",
-  secure: process.env.NODE_ENV === "production",
+  // Vercel sets VERCEL=1 on its servers, which always use HTTPS. Locally it stays plain HTTP.
+  secure: Boolean(process.env.VERCEL),
   path: "/",
 };
 
@@ -27,12 +28,24 @@ export async function hashPassword(password) {
 export async function verifyPassword(password, stored) {
   const [saltHex, hashHex] = stored.split(":");
   const expected = Buffer.from(hashHex, "hex");
-  const actual = await scryptAsync(password, Buffer.from(saltHex, "hex"), expected.length, SCRYPT_OPTIONS);
+  const actual = await scryptAsync(
+    password,
+    Buffer.from(saltHex, "hex"),
+    expected.length,
+    SCRYPT_OPTIONS,
+  );
   return timingSafeEqual(actual, expected);
 }
 
 // Checked when an email doesn't exist, so a wrong email takes as long as a wrong password.
-export const DUMMY_HASH = await hashPassword(randomBytes(16).toString("hex"));
+// Checked when an email doesn't exist, so a wrong email takes as long as a wrong password.
+// It's made the first time someone logs in, so starting the server stays fast.
+let dummyHash;
+
+export async function getDummyHash() {
+  dummyHash ??= await hashPassword(randomBytes(16).toString("hex"));
+  return dummyHash;
+}
 
 // Only a hash of each session token is stored, so a leaked database can't be used to log in.
 const hashToken = (token) => createHash("sha256").update(token).digest("hex");
@@ -51,7 +64,9 @@ export async function createSession(adminId) {
 }
 
 export async function deleteSession(token) {
-  await pool.query("DELETE FROM sessions WHERE token_hash = $1", [hashToken(token)]);
+  await pool.query("DELETE FROM sessions WHERE token_hash = $1", [
+    hashToken(token),
+  ]);
 }
 
 // Put this in front of any route that only the admin may use.
@@ -66,7 +81,8 @@ export async function requireAdmin(req, res, next) {
      WHERE sessions.token_hash = $1 AND sessions.expires_at > now()`,
     [hashToken(token)],
   );
-  if (rows.length === 0) return res.status(401).json({ error: "Please log in" });
+  if (rows.length === 0)
+    return res.status(401).json({ error: "Please log in" });
 
   req.admin = rows[0];
   next();

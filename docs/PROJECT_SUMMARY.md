@@ -1,7 +1,7 @@
 # ABHISHEK: The Series — Project Summary & Pipeline Architecture
 
 *A living document, updated after every task. Exported to PDF at the end of the project.*
-**Last updated:** 6 Nov 2026 · **Current step:** Admin panel, Stage 6 (put the API and admin online). Live at https://sirabhishekportfolio.vercel.app
+**Last updated:** 6 Nov 2026 · **Current step:** Admin panel, Stage 6 (API as a Vercel Function, ready to add; preview deploy first). Live at https://sirabhishekportfolio.vercel.app
 
 ---
 
@@ -226,4 +226,4 @@ my_Project/
 28. ~~Admin panel Stage 3: useProjects hook fetches from API with projects.js backup; CORS allowlist; live build skips the API until VITE_API_URL is set~~ ✅
 29. ~~Admin panel Stage 4: scrypt password hashing (Node crypto), database sessions with hashed tokens, httpOnly SameSite=Strict cookie, login rate limit, requireAdmin middleware; pool error handler for Neon dropped connections~~ ✅
 30. ~~Admin panel Stage 5: validated add/edit/delete routes, /admin page with login and project forms, Vite proxy; first real project added from the admin page~~ ✅
-31. **Next: Admin panel Stage 6** Host the API online, connect the live site and /admin
+31. **Now: Admin panel Stage 6** Express app in server/app.js, served on Vercel by api/index.js via vercel.json rewrites; Neon pooled connection; same-origin cookie; generic 500 handler
